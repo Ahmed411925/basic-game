@@ -27,7 +27,7 @@ while win < 1:
     print(f'{player.name.title()} has {player.health} hit points')
     menu()
     if player.x == 9 and player.y == 4:
-        win = 2
+        win = 3
 
 
 print(f'Congratulations! You have escaped the burning space station!')
