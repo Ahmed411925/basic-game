@@ -45,6 +45,7 @@ inventory = [sword, shield, bandage, apple]
 enemies = [alien, spider, zombie]
 inv = []
 
+
 for item in inventory:
     inv.append(item['name'])
 

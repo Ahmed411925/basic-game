@@ -14,6 +14,7 @@ from classes import key
 from menu import menu
 
 
+clear = '\n' * 200
 win = 0
 
 
@@ -22,6 +23,7 @@ print(f'station and must make your way to the escape pod.')
 print(f'Watch out for tiles on fire, they will look like')
 print(f'this "⧮". You are here ⯐.')
 input(f'input anything to enter:\n')
+print(clear)
 
 
 # loop for running through program until win condition is achieved

@@ -15,7 +15,7 @@ h = player.hunger
 mh = player.maxHung
 y = player.y
 x = player.x
-clear = '\n' * 100
+clear = '\n' * 200
 
 
 # defining function for printing inventory
@@ -24,6 +24,7 @@ def printInv():
     Function for printing inventory
     '''
     separator = " "
+    print(clear)
     print('Inventory:')
     print(f'\n{separator.join(data.inv)}\n')
 
@@ -51,18 +52,22 @@ def menu():
         choice = input()
 
         if choice == '1' and y > 0 or choice.lower() == 'up' and y > 0:
+            print(clear)
             player.y = player.y - 1
             choice = ''
 
         elif choice == '2' and y < 4 or choice.lower() == 'down' and y < 4:
+            print(clear)
             player.y = player.y + 1
             choice = ''
 
         elif choice == '3' and x > 0 or choice.lower() == 'left' and x > 0:
+            print(clear)
             player.x = player.x - 1
             choice = ''
 
         elif choice == '4' and x < 9 or choice.lower() == 'right' and x < 9:
+            print(clear)
             player.x = player.x + 1
             choice = ''
 
@@ -83,21 +88,26 @@ def menu():
         choice = input(f'What would you like to use?\n')
         if choice == '1' or choice.lower() == 'sword':
             if player.combat == 1:
+                print(clear)
                 print(f'{player.name.title()} used their Sword')
                 classes.Enemy.health = classes.Enemy.health - data.sword('damage')
             else:
+                print(clear)
                 print('You cannot use this while not in combat')
             choice = ''
 
         elif choice == '2' or choice.lower() == 'shield':
             if player.combat == 1:
+                print(clear)
                 print(f'{player.name.title()} used their Shield')
                 player.shield = 1
             else:
+                print(clear)
                 print('You cannot use this while not in combat')
             choice = ''
 
         elif choice == '3' or choice.lower() == 'bandage':
+            print(clear)
             if player.health < player.maxHealth:
                 player.heal(data.bandage('heal'))
                 if player.health > player.maxHealth:
@@ -108,6 +118,7 @@ def menu():
             choice = ''
 
         elif choice == '4' or choice.lower() == 'apple':
+            print(clear)
             if h < mh:
                 player.hunger = player.hunger + data.apple('hunger')
                 if h > mh:
@@ -117,11 +128,14 @@ def menu():
             choice = ''
 
         else:
+            print(clear)
             print("That is not a valid option!")
 
 # creating option to quit game
     elif choice == "4" or choice.lower() == 'quit':
+        print(clear)
         exit()
 
     else:
+        print(clear)
         print("That is not a valid option!")
