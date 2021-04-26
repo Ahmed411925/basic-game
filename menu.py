@@ -7,6 +7,7 @@
 
 
 import player
+import classes
 import data
 
 
@@ -14,10 +15,14 @@ h = player.hunger
 mh = player.maxHung
 y = player.y
 x = player.x
+clear = '\n' * 100
 
 
 # defining function for printing inventory
 def printInv():
+    '''
+    Function for printing inventory
+    '''
     separator = " "
     print('Inventory:')
     print(f'\n{separator.join(data.inv)}\n')
@@ -25,12 +30,16 @@ def printInv():
 
 # creating menu function for selecting actions
 def menu():
+    '''
+    Menu for space station game
+    '''
     print('Available options:')
     print('1) Move')
     print('2) Inventory')
     print('3) Use item')
     print('4) Quit')
     choice = input(f'What would you like to do?\n')
+
 
 # creating option to move around the map
     if choice == "1" or choice.lower() == 'move':
@@ -42,22 +51,23 @@ def menu():
         choice = input()
 
         if choice == '1' and y > 0 or choice.lower() == 'up' and y > 0:
-            y = y - 1
+            player.y = player.y - 1
             choice = ''
 
         elif choice == '2' and y < 4 or choice.lower() == 'down' and y < 4:
-            y = y + 1
+            player.y = player.y + 1
             choice = ''
 
         elif choice == '3' and x > 0 or choice.lower() == 'left' and x > 0:
-            x = x - 1
+            player.x = player.x - 1
             choice = ''
 
         elif choice == '4' and x < 9 or choice.lower() == 'right' and x < 9:
-            x = x + 1
+            player.x = player.x + 1
             choice = ''
 
         else:
+            print(clear)
             print("That is not a valid option!")
 
 # creating option to view inventory
@@ -74,7 +84,7 @@ def menu():
         if choice == '1' or choice.lower() == 'sword':
             if player.combat == 1:
                 print(f'{player.name.title()} used their Sword')
-                enemy.health = enemy.health - data.sword('damage')
+                classes.Enemy.health = classes.Enemy.health - data.sword('damage')
             else:
                 print('You cannot use this while not in combat')
             choice = ''
