@@ -15,3 +15,6 @@
 
 ## v2.1
 - Fixed bug that would skip player turn in combat if invalid input was entered
+
+## v2.2
+- Fixed bug where shield would not unequip after combat ended

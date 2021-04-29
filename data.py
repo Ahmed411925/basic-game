@@ -8,7 +8,7 @@
 
 # stats for entities
 player = {'name': 'bill', 'health': 100, 'strength': 10, 'hunger': 9}
-alien = {'name': 'alien', 'health': 100, 'damage': 9, 'points': 15}
+alien = {'name': 'alien', 'health': 100, 'damage': 10, 'points': 15}
 spider = {'name': 'spider', 'health': 10, 'damage': 4, 'points': 5}
 zombie = {'name': 'zombie', 'health': 50, 'damage': 8, 'points': 10}
 

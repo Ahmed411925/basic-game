@@ -56,25 +56,25 @@ def menu():
         if choice == '1' and y > 0 or choice.lower() == 'up' and y > 0:
             print(clear)
             char.player.y = char.player.y - 1
-            y -= 1
+            y = char.player.y
             choice = ''
 
         elif choice == '2' and y < 4 or choice.lower() == 'down' and y < 4:
             print(clear)
             char.player.y = char.player.y + 1
-            y += 1
+            y = char.player.y
             choice = ''
 
         elif choice == '3' and x > 0 or choice.lower() == 'left' and x > 0:
             print(clear)
             char.player.x = char.player.x - 1
-            x -= 1
+            x = char.player.x
             choice = ''
 
         elif choice == '4' and x < 9 or choice.lower() == 'right' and x < 9:
             print(clear)
             char.player.x = char.player.x + 1
-            x += 1
+            x = char.player.x
             choice = ''
 
         else:
@@ -212,6 +212,8 @@ def inCombat():
             char.combat = 0
             classes.spider.kill()
             print('You killed the spider!')
+            char.shield = 0
+            print('Your shield has been unequipped')
             death += 1
 
 # combat against an alien
@@ -228,6 +230,8 @@ def inCombat():
         if classes.alien.health <= 0:
             classes.alien.kill()
             print('The alien has been slain!')
+            char.shield = 0
+            print('Your shield has been unequipped')
             char.combat = 0
             death += 1
 
@@ -247,4 +251,6 @@ def inCombat():
             classes.zombie.kill()
             print('That zombie won\'t be needing any more brains!')
             char.combat = 0
+            char.shield = 0
+            print('Your shield has been unequipped')
             death += 1
