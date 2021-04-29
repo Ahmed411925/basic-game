@@ -164,7 +164,7 @@ def fight():
         if char.combat == 3:
             classes.zombie.health -= 10
 
-    if choice == '2':
+    elif choice == '2':
         if char.shield == 0:
             char.shield = 1
             print('You equipped your shield!')
@@ -172,7 +172,7 @@ def fight():
             char.shield = 0
             print('You unequipped your shield!')
 
-    if choice == '3':
+    elif choice == '3':
         if data.bandage['amount'] > 0:
             print('You healed 10 hitpoints!')
             char.player.heal(10)
@@ -184,8 +184,12 @@ def fight():
         if char.player.health > char.player.maxHealth:
             char.player.health = char.player.maxHealth
 
-    if choice == '4' or choice.lower() == 'quit':
+    elif choice == '4' or choice.lower() == 'quit':
         exit()
+
+    else:
+        print('That is not a valid option!')
+        fight()
 
 
 def inCombat():

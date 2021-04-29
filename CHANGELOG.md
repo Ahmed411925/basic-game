@@ -12,3 +12,6 @@
 ## v2
 - Added combat
 - Wall of fire is now passable by defeating all enemies and accessing the fire extinguisher
+
+## v2.1
+- Fixed bug that would skip player turn in combat if invalid input was entered
