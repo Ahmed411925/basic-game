@@ -15,23 +15,23 @@ zombie = {'name': 'zombie', 'health': 50, 'damage': 8, 'points': 10}
 
 # Item names, descriptions and stats
 sword = {
-  'name': 'Sword',
-  'damage': 10,
-  'description': 'Useful for close range enemies'
+    'name': 'Sword',
+    'damage': 10,
+    'description': 'Useful for close range enemies'
 }
 
 
 shield = {
-  'name': 'Shield',
-  'description': 'Reduces incoming damage when equipped'
+    'name': 'Shield',
+    'description': 'Reduces incoming damage when equipped'
 }
 
 
 bandage = {
-  'name': 'Bandage',
-  'description': 'Restores 10 hp to player',
-  'heal': 10,
-  'amount': 10
+    'name': 'Bandage',
+    'description': 'Restores 10 hp to player',
+    'heal': 10,
+    'amount': 10
 }
 
 

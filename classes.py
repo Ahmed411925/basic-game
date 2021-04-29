@@ -46,7 +46,7 @@ class defTile(mapTile):
 class keyTile(mapTile):
 
     key = 0
-    
+
     def __init__(self, marker, x, y):
         self.marker = marker
         self.x = x
@@ -64,7 +64,7 @@ class keyTile(mapTile):
 
 # tile class for tiles on fire
 class Fire(mapTile):
-    
+
     check = 1
     x = 5
 

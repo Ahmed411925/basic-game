@@ -5,12 +5,10 @@
 # Name: Ahmed Keshta
 # Description: Menu module for RPG game
 
-
 import char
 import classes
 import data
 import random
-
 
 y = char.player.y
 x = char.player.x
@@ -31,14 +29,12 @@ def printInv():
 
 # creating menu function for selecting actions
 def menu():
-
     '''
     Menu for space station game
     '''
 
     global y
     global x
-
 
     print('Available options:')
     print('1) Move')
@@ -47,8 +43,7 @@ def menu():
     print('4) Quit')
     choice = input(f'What would you like to do?\n')
 
-
-# creating option to move around the map
+    # creating option to move around the map
     if choice == "1" or choice.lower() == 'move':
         print('Where would you like to move:')
         print('1) Up')
@@ -100,7 +95,8 @@ def menu():
             if char.player.combat == 1:
                 print(clear)
                 print(f'{char.player.name.title()} used their Sword')
-                classes.Enemy.health = classes.Enemy.health - data.sword('damage')
+                classes.Enemy.health = classes.Enemy.health - data.sword(
+                    'damage')
             else:
                 print(clear)
                 print('You cannot use this while not in combat')
@@ -122,14 +118,16 @@ def menu():
                 char.player.heal(data.bandage('heal'))
                 if char.player.health > char.player.maxHealth:
                     char.player.health = char.player.maxHealth
-                
+
             else:
-                print(f'{char.player.name.title()} is already at maximum health')
+                print(
+                    f'{char.player.name.title()} is already at maximum health')
             choice = ''
 
         else:
             print(clear)
             print("That is not a valid option!")
+
 
 # creating option to quit game
     elif choice == "4" or choice.lower() == 'quit':
@@ -159,7 +157,7 @@ def fight():
 
         if char.combat == 3:
             classes.zombie.health -= 10
-    
+
     if choice == '2':
         if char.shield == 0:
             char.shield = 1
@@ -173,13 +171,13 @@ def fight():
             print('You healed 10 hitpoints!')
             char.player.heal(10)
             data.bandage['amount'] -= 1
-        
+
         else:
             print('You don\'t have any more bandages')
 
         if char.player.health > char.player.maxHealth:
             char.player.health = char.player.maxHealth
-    
+
     if choice == '4' or choice.lower() == 'quit':
         exit()
 
@@ -188,13 +186,13 @@ def inCombat():
 
     global death
 
-# combat against a spider
+    # combat against a spider
     if char.combat == 1:
         print('\nYou are up against a spider')
         print(f'It has {classes.spider.health} hitpoints remaining\n')
         fight()
         if char.shield == 1:
-            char.player.health -= (data.spider['damage'])/2
+            char.player.health -= (data.spider['damage']) / 2
 
         else:
             char.player.health -= (data.spider['damage'])
@@ -211,11 +209,10 @@ def inCombat():
         print(f'It has {classes.alien.health} hitpoints remaining\n')
         fight()
         if char.shield == 1:
-            char.player.health -= (data.alien['damage'])/2
+            char.player.health -= (data.alien['damage']) / 2
 
         else:
             char.player.health -= (data.alien['damage'])
-
 
         if classes.alien.health <= 0:
             classes.alien.kill()
@@ -223,17 +220,17 @@ def inCombat():
             char.combat = 0
             death += 1
 
+
 # combat against a zombie
     if char.combat == 3:
         print('\nYou are up against a zombie')
         print(f'It has {classes.zombie.health} hitpoints remaining\n')
         fight()
         if char.shield == 1:
-            char.player.health -= (data.zombie['damage'])/2
+            char.player.health -= (data.zombie['damage']) / 2
 
         else:
             char.player.health -= (data.zombie['damage'])
-
 
         if classes.zombie.health <= 0:
             classes.zombie.kill()
