@@ -145,6 +145,7 @@ def menu():
         print("That is not a valid option!")
 
 
+# Menu during a combat engagement
 def fight():
     print('What would you like to do?')
     print('1) Swing sword')

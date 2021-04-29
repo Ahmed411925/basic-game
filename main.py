@@ -18,6 +18,7 @@ from UI import inCombat
 from UI import fight
 
 
+# variables to make life easier
 clear = '\n' * 200
 win = 0
 name = char.player.name.title()
