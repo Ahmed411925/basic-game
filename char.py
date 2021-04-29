@@ -20,15 +20,15 @@ x = startPos[0]
 y = startPos[1]
 health = 100
 shield = 0
-hunger = 10
-maxHung = 10
 combat = 0
 
 
 # creating class for player
 class Player:
-    def __init__(self, name, health, maxHealth, x, y, shield, hunger, maxHung):
-        self.health = 100
+    def __init__(self, name, health, maxHealth, x, y, shield):
+        self.health = health
+        self.maxHealth = maxHealth
+        self.shield = shield
         self.name = name
         self.x = x
         self.y = y
@@ -40,4 +40,4 @@ class Player:
         self.health += amount
 
 
-player = Player(name, health, maxHealth, x, y, shield, hunger, maxHung)
+player = Player(name, health, maxHealth, x, y, shield)

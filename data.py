@@ -8,9 +8,9 @@
 
 # stats for entities
 player = {'name': 'bill', 'health': 100, 'strength': 10, 'hunger': 9}
-alien = {'name': 'alien', 'health': 100, 'strength': 10, 'points': 15}
-spider = {'name': 'spider', 'health': 10, 'strength': 5, 'points': 5}
-zombie = {'name': 'zombie', 'health': 50, 'strength': 10, 'points': 10}
+alien = {'name': 'alien', 'health': 100, 'damage': 9, 'points': 15}
+spider = {'name': 'spider', 'health': 10, 'damage': 4, 'points': 5}
+zombie = {'name': 'zombie', 'health': 50, 'damage': 8, 'points': 10}
 
 
 # Item names, descriptions and stats
@@ -30,18 +30,12 @@ shield = {
 bandage = {
   'name': 'Bandage',
   'description': 'Restores 10 hp to player',
-  'heal': 10
+  'heal': 10,
+  'amount': 10
 }
 
 
-apple = {
-  'name': 'apple',
-  'description': 'Restores 2 hunger points',
-  'hunger': 2
-}
-
-
-inventory = [sword, shield, bandage, apple]
+inventory = [sword, shield, bandage]
 enemies = [alien, spider, zombie]
 inv = []
 

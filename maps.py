@@ -6,9 +6,10 @@
 # Description: Map module for RPG game
 
 
-import player
+import char
 import classes
-from player import Player
+from char import Player
+from char import player
 from classes import Fire
 from classes import Enemy
 from classes import key
@@ -27,13 +28,16 @@ def spaceStation():
     d = ['▢', '▢', '▢', '▢', '▢', '▢', '▢', '▢', '▢', '▢']
     e = ['▢', '▢', '▢', '▢', '▢', '▢', '▢', '▢', '▢', '◨']
     grid = [a, b, c, d, e]
-    grid[classes.spider.y][classes.spider.x] = 'E'
-    grid[classes.alien.y][classes.alien.x] = 'E'
-    grid[classes.zombie.y][classes.zombie.x] = 'E'
+    if classes.spider.y < 5:
+        grid[classes.spider.y][classes.spider.x] = classes.spider.marker
+    if classes.alien.y < 5:
+        grid[classes.alien.y][classes.alien.x] = classes.alien.marker
+    if classes.zombie.y < 5:
+        grid[classes.zombie.y][classes.zombie.x] = classes.zombie.marker
     grid[key.y][key.x] = key.marker
-    if player.y > 4:
-        player.y = 4
-    grid[player.y][player.x] = '⯐'
+    if char.player.y > 4:
+        char.player.y = 4
+    grid[char.player.y][char.player.x] = '⯐'
     for row in grid:
         if Fire.check == 1:
             grid[0][Fire.x] = '⧮'

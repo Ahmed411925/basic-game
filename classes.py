@@ -11,6 +11,14 @@ from data import inventory
 from data import inv
 
 
+# Enemy marker
+enMarker = 'E'
+
+
+# Enemy death count(when equal to 3 player obtains fire extinguisher)
+death = 0
+
+
 # Enemy base class
 class Enemy:
     def __init__(self, name, health, x, y, damage, marker):
@@ -20,9 +28,6 @@ class Enemy:
         self.y = y
         self.damage = damage
         self.marker = 'E'
-    
-    def kill(self):
-        combat = 0
 
 
 # Map tile base class
@@ -74,32 +79,47 @@ class Fire(mapTile):
 
 # spider enemy class
 class Spider(Enemy):
-    def __init__(self, x, y, health):
+    def __init__(self, x, y, health, marker):
         self.health = health
         self.x = x
         self.y = y
+        self.marker = marker
+
+    def kill(self):
+        self.marker = '▢'
+        self.y = 20
 
 
 # alien enemy class
 class Alien(Enemy):
-    def __init__(self, x, y, health):
+    def __init__(self, x, y, health, marker):
         self.health = health
         self.x = x
         self.y = y
+        self.marker = marker
+
+    def kill(self):
+        self.marker = '▢'
+        self.y = 20
 
 
 # zombie enemy class
 class Zombie(Enemy):
-    def __init__(self, x, y, health):
+    def __init__(self, x, y, health, marker):
         self.health = health
         self.x = x
         self.y = y
+        self.marker = marker
+
+    def kill(self):
+        self.marker = '▢'
+        self.y = 20
 
 
 # creation of enemy objects
-spider = Spider(2, 1, data.spider['health'])
-alien = Alien(3, 3, data.alien['health'])
-zombie = Zombie(1, 3, data.zombie['health'])
+spider = Spider(2, 1, data.spider['health'], enMarker)
+alien = Alien(3, 3, data.alien['health'], enMarker)
+zombie = Zombie(1, 3, data.zombie['health'], enMarker)
 
 
 # creation of key tile object
