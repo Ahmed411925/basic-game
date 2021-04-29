@@ -25,9 +25,9 @@ name = char.player.name.title()
 
 
 print(f'\nHello {name}, you are stuck in a burning space')
-print(f'station and must make your way to the escape pod.')
+print(f'station and must make your way to the escape pod(◨).')
 print(f'Watch out for tiles on fire, they will look like')
-print(f'this "⧮". You are here ⯐.')
+print(f'this "⧮". Enemies appear as E. You are here ⯐.')
 input(f'input anything to enter:\n')
 print(clear)
 
