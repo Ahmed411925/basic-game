@@ -14,6 +14,7 @@ y = char.player.y
 x = char.player.x
 clear = '\n' * 200
 death = 0
+name = char.player.name.title()
 
 
 # defining function for printing inventory
@@ -32,7 +33,7 @@ def menu():
     '''
     Menu for space station game
     '''
-
+    global name
     global y
     global x
 
@@ -94,7 +95,7 @@ def menu():
         if choice == '1' or choice.lower() == 'sword':
             if char.player.combat == 1:
                 print(clear)
-                print(f'{char.player.name.title()} used their Sword')
+                print(f'{name} used their Sword')
                 classes.Enemy.health = classes.Enemy.health - data.sword(
                     'damage')
             else:
@@ -105,7 +106,7 @@ def menu():
         elif choice == '2' or choice.lower() == 'shield':
             if char.player.combat == 1:
                 print(clear)
-                print(f'{char.player.name.title()} used their Shield')
+                print(f'{name} used their Shield')
                 char.player.shield = 1
             else:
                 print(clear)
@@ -114,14 +115,19 @@ def menu():
 
         elif choice == '3' or choice.lower() == 'bandage':
             print(clear)
-            if char.player.health < char.player.maxHealth:
-                char.player.heal(data.bandage('heal'))
-                if char.player.health > char.player.maxHealth:
-                    char.player.health = char.player.maxHealth
+            if data.bandage['amount'] > 0:
+                if char.player.health < char.player.maxHealth:
+                    char.player.heal(data.bandage['heal'])
+                    data.bandage['amount'] -= 1
+                    if char.player.health > char.player.maxHealth:
+                        char.player.health = char.player.maxHealth
+
+                else:
+                    print(
+                        f'{name} is already at maximum health')
 
             else:
-                print(
-                    f'{char.player.name.title()} is already at maximum health')
+                print('You do not have any more bandages!')
             choice = ''
 
         else:

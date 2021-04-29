@@ -20,9 +20,10 @@ from UI import fight
 
 clear = '\n' * 200
 win = 0
+name = char.player.name.title()
 
 
-print(f'\nHello {char.player.name.title()}, you are stuck in a burning space')
+print(f'\nHello {name}, you are stuck in a burning space')
 print(f'station and must make your way to the escape pod.')
 print(f'Watch out for tiles on fire, they will look like')
 print(f'this "⧮". You are here ⯐.')
@@ -33,7 +34,7 @@ print(clear)
 # loop for running through program until win condition is achieved
 while win < 1:
     maps.spaceStation()
-    print(f'{char.player.name.title()} has {char.player.health} hit points')
+    print(f'\n{name} has {char.player.health} hit points\n')
     if char.combat > 0:
         inCombat()
     
