@@ -6,9 +6,6 @@
 # Description: Player data module for rpg game
 
 
-import data
-
-
 # starting position for player
 startPos = [0, 0]
 

@@ -8,10 +8,6 @@
 
 import char
 import classes
-from char import Player
-from char import player
-from classes import Fire
-from classes import Enemy
 from classes import key
 
 
@@ -39,10 +35,9 @@ def spaceStation():
         char.player.y = 4
     grid[char.player.y][char.player.x] = '⯐'
     for row in grid:
-        if Fire.check == 1:
-            grid[0][Fire.x] = '⧮'
-            grid[1][Fire.x] = '⧮'
-            grid[2][Fire.x] = '⧮'
-            grid[3][Fire.x] = '⧮'
-            grid[4][Fire.x] = '⧮'
+        grid[0][classes.fire.x] = classes.fire.marker
+        grid[1][classes.fire.x] = classes.fire.marker
+        grid[2][classes.fire.x] = classes.fire.marker
+        grid[3][classes.fire.x] = classes.fire.marker
+        grid[4][classes.fire.x] = classes.fire.marker
         print(separator.join(row))

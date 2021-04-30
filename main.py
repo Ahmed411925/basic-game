@@ -6,16 +6,13 @@
 # Description: RPG Game Mock
 
 
-import data
 import maps
 import char
 import UI
-from char import combat
 import classes
 from classes import key
 from UI import menu
 from UI import inCombat
-from UI import fight
 
 
 # variables to make life easier
@@ -28,7 +25,7 @@ print(f'\nHello {name}, you are stuck in a burning space')
 print(f'station and must make your way to the escape pod(◨).')
 print(f'Watch out for tiles on fire, they will look like')
 print(f'this "⧮". Enemies appear as E. You are here ⯐.')
-input(f'input anything to enter:\n')
+input(f'Input anything to enter:\n')
 print(clear)
 
 
@@ -42,7 +39,7 @@ while win < 1:
     elif char.combat == 0:
         menu()
 
-    if char.player.x == classes.Fire.x and classes.Fire.check == 1:
+    if char.player.x == classes.fire.x and classes.fire.check == 1:
         print('You can\'t go there without a fire extinguisher!'
         '\nObtain one by killing all 3 enemies')
         char.player.x = char.player.x - 1
@@ -77,7 +74,7 @@ while win < 1:
     if UI.death == 3:
         UI.death += 1
         print('You obtained the fire extinguisher and put out the fire!')
-        classes.Fire.check = 0
+        classes.fire.ext()
 
 
 print(f'Congratulations! You have escaped the burning space station!')

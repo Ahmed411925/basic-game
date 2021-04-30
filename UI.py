@@ -8,7 +8,7 @@
 import char
 import classes
 import data
-import random
+
 
 y = char.player.y
 x = char.player.x
@@ -221,6 +221,8 @@ def inCombat():
         if classes.spider.health <= 0:
             char.combat = 0
             classes.spider.kill()
+            if char.player.health > 0:
+                print('You squashed the spider!')
             if char.shield == 1:
                 char.shield = 0
                 print('Your shield has been unequipped')
@@ -239,7 +241,8 @@ def inCombat():
 
         if classes.alien.health <= 0:
             classes.alien.kill()
-            print('The alien has been slain!')
+            if char.player.health > 0:
+                print('The alien has been slain!')
             if char.shield == 1:
                 char.shield = 0
                 print('Your shield has been unequipped')
@@ -260,7 +263,8 @@ def inCombat():
 
         if classes.zombie.health <= 0:
             classes.zombie.kill()
-            print('That zombie won\'t be needing any more brains!')
+            if char.player.health > 0:
+                print('That zombie won\'t be needing any more brains!')
             char.combat = 0
             if char.shield == 1:
                 char.shield = 0

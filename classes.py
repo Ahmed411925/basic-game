@@ -7,7 +7,6 @@
 
 
 import data
-from data import inventory
 from data import inv
 
 
@@ -63,17 +62,14 @@ class keyTile(mapTile):
 
 # tile class for tiles on fire
 class Fire(mapTile):
-
-    check = 1
-    x = 5
-
     def __init__(self, check, x):
         self.x = x
         self.check = check
         self.marker = '⧮'
 
-    def ext(self, check):
+    def ext(self):
         self.check = 0
+        self.marker = '▢'
 
 
 # spider enemy class
@@ -123,3 +119,7 @@ zombie = Zombie(1, 3, data.zombie['health'], enMarker)
 
 # creation of key tile object
 key = keyTile('⚿', 3, 4, 0)
+
+
+# creation of fire tile object
+fire = Fire(1, 5)
