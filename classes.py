@@ -45,18 +45,17 @@ class defTile(mapTile):
 # tile class containing key
 class keyTile(mapTile):
 
-    key = 0
-
-    def __init__(self, marker, x, y):
+    def __init__(self, marker, x, y, check):
         self.marker = marker
         self.x = x
         self.y = y
+        self.check = check
 
     def grab(self):
         '''
         Function for when key is grabbed
         '''
-        key = 1
+        self.check = 1
         self.marker = '▢'
         print('You grabbed the key to the escape pod!')
         inv.append('key')
@@ -123,4 +122,4 @@ zombie = Zombie(1, 3, data.zombie['health'], enMarker)
 
 
 # creation of key tile object
-key = keyTile('⚿', 3, 4)
+key = keyTile('⚿', 3, 4, 0)

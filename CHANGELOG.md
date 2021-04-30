@@ -18,3 +18,7 @@
 
 ## v2.2
 - Fixed bug where shield would not unequip after combat ended
+
+## v2.1.1
+- Fixed bug where number of bandages remaining did not display after healing
+- Fixed bug where players could win without having grabbed the key

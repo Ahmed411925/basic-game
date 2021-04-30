@@ -15,6 +15,7 @@ x = char.player.x
 clear = '\n' * 200
 death = 0
 name = char.player.name.title()
+bandage = data.bandage['amount']
 
 
 # defining function for printing inventory
@@ -36,6 +37,7 @@ def menu():
     global name
     global y
     global x
+    global bandage
 
     print('Available options:')
     print('1) Move')
@@ -93,7 +95,7 @@ def menu():
             a += 1
         choice = input(f'What would you like to use?\n')
         if choice == '1' or choice.lower() == 'sword':
-            if char.player.combat == 1:
+            if char.combat == 1:
                 print(clear)
                 print(f'{name} used their Sword')
                 classes.Enemy.health = classes.Enemy.health - data.sword(
@@ -104,7 +106,7 @@ def menu():
             choice = ''
 
         elif choice == '2' or choice.lower() == 'shield':
-            if char.player.combat == 1:
+            if char.combat == 1:
                 print(clear)
                 print(f'{name} used their Shield')
                 char.player.shield = 1
@@ -119,6 +121,10 @@ def menu():
                 if char.player.health < char.player.maxHealth:
                     char.player.heal(data.bandage['heal'])
                     data.bandage['amount'] -= 1
+                    bandage = data.bandage['amount']
+                    if bandage == 0:
+                        data.inv.remove('bandage')
+                    print(f'You have {bandage} bandages remaining!')
                     if char.player.health > char.player.maxHealth:
                         char.player.health = char.player.maxHealth
 
@@ -178,6 +184,10 @@ def fight():
             print('You healed 10 hitpoints!')
             char.player.heal(10)
             data.bandage['amount'] -= 1
+            bandage = data.bandage['amount']
+            if bandage == 0:
+                        data.inv.remove('bandage')
+            print(f'You have {bandage} bandages remaining!')
 
         else:
             print('You don\'t have any more bandages')
@@ -211,9 +221,9 @@ def inCombat():
         if classes.spider.health <= 0:
             char.combat = 0
             classes.spider.kill()
-            print('You killed the spider!')
-            char.shield = 0
-            print('Your shield has been unequipped')
+            if char.shield == 1:
+                char.shield = 0
+                print('Your shield has been unequipped')
             death += 1
 
 # combat against an alien
@@ -230,8 +240,9 @@ def inCombat():
         if classes.alien.health <= 0:
             classes.alien.kill()
             print('The alien has been slain!')
-            char.shield = 0
-            print('Your shield has been unequipped')
+            if char.shield == 1:
+                char.shield = 0
+                print('Your shield has been unequipped')
             char.combat = 0
             death += 1
 
@@ -251,6 +262,7 @@ def inCombat():
             classes.zombie.kill()
             print('That zombie won\'t be needing any more brains!')
             char.combat = 0
-            char.shield = 0
-            print('Your shield has been unequipped')
+            if char.shield == 1:
+                char.shield = 0
+                print('Your shield has been unequipped')
             death += 1

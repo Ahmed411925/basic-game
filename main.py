@@ -67,7 +67,7 @@ while win < 1:
     if char.player.x == key.x and char.player.y == key.y:
         key.grab()
 
-    if char.player.x == 9 and char.player.y == 4:
+    if char.player.x == 9 and char.player.y == 4 and key.check == 1:
         win = 3
     
     if char.player.health <= 0:
