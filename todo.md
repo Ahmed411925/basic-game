@@ -27,3 +27,7 @@
     - Obstacles (✔)
     - End zone (✔)
     - Laying out the map (✔)
+- Future ( )
+    - New maps ( )
+    - Random generated enemies ( )
+    - Better combat system ( )
